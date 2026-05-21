@@ -1,0 +1,73 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "\ud83d\udd25 Spire 2.0.0 Bug Burndown Update",
+        "emoji": true
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Active Bugs:*\n\ud83d\udd34 *152* bugs"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Days to Code Freeze:*\n\u23f0 *8* business days"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Required Rate:*\n\ud83d\udcc9 *-19.0* bugs/day"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Estimated Rate:*\n\ud83d\udcca *-3.80* bugs/day\n_historical average_"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Velocity Gap:*\n\u26a1 *12.8x* improvement needed"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Go Live:*\n\ud83c\udfaf 2026-06-15"
+        }
+      ]
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "\ud83d\udd34 *Status:* Critical - urgent action needed"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "\ud83d\udcc5 Updated: May 21, 2026 at 03:45 PM | \ud83d\udd17 <https://taylorwestfall-12.github.io/Spire-2-0-burndown-/|View Full Dashboard>"
+        }
+      ]
+    }
+  ],
+  "text": "Spire 2.0.0 Burndown: 152 bugs remaining, 8 days to Code Freeze"
+}

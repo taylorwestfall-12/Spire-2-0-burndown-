@@ -322,35 +322,30 @@ def generate_summary_stats(data):
 
     html = f"""
     <div style="background: linear-gradient(135deg, #3B2A5C 0%, #2A1F42 100%); padding: 20px; border-radius: 10px; margin: 15px 0; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;">
-            <div style="background-color: rgba(244, 197, 66, 0.15); padding: 12px; border-radius: 8px; text-align: center; border: 1px solid rgba(244, 197, 66, 0.3);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+            <div style="background-color: rgba(244, 197, 66, 0.15); padding: 15px; border-radius: 8px; text-align: center; border: 1px solid rgba(244, 197, 66, 0.3);">
                 <h3 style="margin: 0; font-size: 11px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px;">Active Bugs</h3>
-                <p style="font-size: 28px; font-weight: bold; margin: 8px 0; color: #F4C542;">{current_bugs}</p>
+                <p style="font-size: 32px; font-weight: bold; margin: 8px 0; color: #F4C542;">{current_bugs}</p>
                 <p style="margin: 0; font-size: 10px; opacity: 0.7;">As of {data['generated_date']}</p>
             </div>
-            <div style="background-color: rgba(244, 197, 66, 0.15); padding: 12px; border-radius: 8px; text-align: center; border: 1px solid rgba(244, 197, 66, 0.3);">
-                <h3 style="margin: 0; font-size: 11px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px;">Business Days to Freeze</h3>
-                <p style="font-size: 28px; font-weight: bold; margin: 8px 0; color: #F4C542;">{business_days_to_freeze}</p>
-                <p style="margin: 0; font-size: 10px; opacity: 0.7;">June 2, 2026</p>
+            <div style="background-color: rgba(244, 197, 66, 0.15); padding: 15px; border-radius: 8px; text-align: center; border: 1px solid rgba(244, 197, 66, 0.3);">
+                <h3 style="margin: 0; font-size: 11px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px;">Code Freeze</h3>
+                <p style="font-size: 32px; font-weight: bold; margin: 8px 0; color: #F4C542;">{business_days_to_freeze}</p>
+                <p style="margin: 0; font-size: 10px; opacity: 0.7;">business days remaining</p>
             </div>
-            <div style="background-color: rgba(244, 197, 66, 0.15); padding: 12px; border-radius: 8px; text-align: center; border: 1px solid rgba(244, 197, 66, 0.3);">
-                <h3 style="margin: 0; font-size: 11px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px;">Required Rate</h3>
-                <p style="font-size: 28px; font-weight: bold; margin: 8px 0; color: #F4C542;">{ideal_rate:.1f}</p>
-                <p style="margin: 0; font-size: 10px; opacity: 0.7;">bugs/day needed</p>
+            <div style="background-color: rgba(244, 197, 66, 0.15); padding: 15px; border-radius: 8px; text-align: center; border: 1px solid rgba(244, 197, 66, 0.3);">
+                <h3 style="margin: 0; font-size: 11px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px;">Required Bugs Fixed per Day</h3>
+                <p style="font-size: 32px; font-weight: bold; margin: 8px 0; color: #F4C542;">{ideal_rate:.1f}</p>
+                <p style="margin: 0; font-size: 10px; opacity: 0.7;">to hit zero by freeze</p>
             </div>
-            <div style="background-color: rgba(244, 197, 66, 0.15); padding: 12px; border-radius: 8px; text-align: center; border: 1px solid rgba(244, 197, 66, 0.3);">
-                <h3 style="margin: 0; font-size: 11px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px;">Estimated Rate</h3>
-                <p style="font-size: 28px; font-weight: bold; margin: 8px 0; color: #F4C542;">{estimated_line_rate:+.2f}</p>
+            <div style="background-color: rgba(244, 197, 66, 0.15); padding: 15px; border-radius: 8px; text-align: center; border: 1px solid rgba(244, 197, 66, 0.3);">
+                <h3 style="margin: 0; font-size: 11px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px;">{"Actual Fix/Find Delta" if estimated_line_rate_source == "last 10 business days" else "Estimated Fix/Find Delta"}</h3>
+                <p style="font-size: 32px; font-weight: bold; margin: 8px 0; color: #F4C542;">{estimated_line_rate:+.2f}</p>
                 <p style="margin: 0; font-size: 10px; opacity: 0.7;">{estimated_line_rate_source}</p>
             </div>
-            <div style="background-color: rgba(244, 197, 66, 0.15); padding: 12px; border-radius: 8px; text-align: center; border: 1px solid rgba(244, 197, 66, 0.3);">
-                <h3 style="margin: 0; font-size: 11px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px;">Velocity Gap</h3>
-                <p style="font-size: 28px; font-weight: bold; margin: 8px 0; color: #F4C542;">{velocity_gap:.1f}x</p>
-                <p style="margin: 0; font-size: 10px; opacity: 0.7;">improvement needed</p>
-            </div>
-            <div style="background-color: rgba(244, 197, 66, 0.15); padding: 12px; border-radius: 8px; text-align: center; border: 1px solid rgba(244, 197, 66, 0.3);">
+            <div style="background-color: rgba(244, 197, 66, 0.15); padding: 15px; border-radius: 8px; text-align: center; border: 1px solid rgba(244, 197, 66, 0.3);">
                 <h3 style="margin: 0; font-size: 11px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px;">Go Live</h3>
-                <p style="font-size: 28px; font-weight: bold; margin: 8px 0; color: #F4C542;">{go_live_date}</p>
+                <p style="font-size: 32px; font-weight: bold; margin: 8px 0; color: #F4C542;">{go_live_date}</p>
                 <p style="margin: 0; font-size: 10px; opacity: 0.7;">Target date</p>
             </div>
         </div>

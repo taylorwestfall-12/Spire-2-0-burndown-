@@ -23,6 +23,25 @@ View the interactive dashboard with real-time bug projections, weekend plateaus,
 
 ## 🔧 How It Works
 
+### Automated Updates (3x Daily)
+
+The dashboard **automatically updates** via GitHub Actions at:
+- **7:00 AM PT** - Morning update before standup
+- **12:00 PM PT** - Midday check-in
+- **4:00 PM PT** - End-of-day snapshot
+
+Each run:
+1. Counts current active 2.0.0 bugs
+2. Updates actual line with today's count
+3. Recalculates projections
+4. Regenerates dashboard + Slack content
+5. Auto-commits and pushes to GitHub
+6. GitHub Pages deploys in 1-2 minutes
+
+**No manual intervention required!** The dashboard stays current throughout the workday.
+
+### Manual Process
+
 1. **Data Collection**: Fetches bug data from ClickUp
 2. **Rate Calculation**: Analyzes historical performance (6-month window)
 3. **Projection**: Generates three projection lines with weekend awareness

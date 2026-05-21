@@ -2,7 +2,9 @@
 
 Interactive bug burndown projection dashboard for the Spire 2.0.0 Global release.
 
-**👋 New here? Start with [CLAUDE.md](CLAUDE.md)** - Open this project in Claude Code and Claude will guide you through everything!
+**👋 Setting up for the first time?** Start with [GET_STARTED.md](GET_STARTED.md) - Load this file in Claude Code and Claude will clone and set up everything for you!
+
+**👋 Already cloned?** Open [CLAUDE.md](CLAUDE.md) in Claude Code for complete project documentation and guidance!
 
 ## 📊 Live Dashboard
 

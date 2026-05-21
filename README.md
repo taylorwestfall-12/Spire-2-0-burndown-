@@ -2,6 +2,8 @@
 
 Interactive bug burndown projection dashboard for the Spire 2.0.0 Global release.
 
+**👋 New here? Start with [CLAUDE.md](CLAUDE.md)** - Open this project in Claude Code and Claude will guide you through everything!
+
 ## 📊 Live Dashboard
 
 **🔗 https://taylorwestfall-12.github.io/Spire-2-0-burndown-/**

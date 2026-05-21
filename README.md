@@ -93,6 +93,27 @@ Dashboard features custom Twilight Towers visual identity:
 - Gold accents (#F4C542)
 - Logo integration
 
+## 🔄 Use This for Your Own Release
+
+**This repository is also a reusable tool!** Other teams can create their own bug burndown dashboards in ~15 minutes.
+
+### For Other Teams
+
+Download [CREATE_BURNDOWN_DASHBOARD.md](CREATE_BURNDOWN_DASHBOARD.md) and load it in Claude Code:
+
+```
+"Help me create a bug burndown dashboard for my release"
+```
+
+Claude will:
+- Ask for your ClickUp data and milestone dates
+- Generate all Python scripts customized for your project
+- Set up GitHub Actions automation
+- Deploy your dashboard to GitHub Pages
+- Create complete documentation
+
+**See [SHARE_WITH_TEAMS.md](SHARE_WITH_TEAMS.md) for instructions on sharing this tool.**
+
 ---
 
 *Generated with Claude Code*

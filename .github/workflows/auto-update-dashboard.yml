@@ -1,0 +1,83 @@
+name: Auto-Update Bug Burndown Dashboard
+
+on:
+  schedule:
+    # Run 3 times daily on weekdays (Mon-Fri)
+    # Times in UTC - converted from Pacific Time:
+    # 7:00 AM PT = 14:00 UTC (2 PM)
+    # 12:00 PM PT = 19:00 UTC (7 PM)
+    # 4:00 PM PT = 23:00 UTC (11 PM)
+    - cron: '0 14 * * 1-5'  # 7 AM PT
+    - cron: '0 19 * * 1-5'  # 12 PM PT
+    - cron: '0 23 * * 1-5'  # 4 PM PT
+
+  # Allow manual trigger for testing
+  workflow_dispatch:
+
+# Required for pushing commits
+permissions:
+  contents: write
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Full history needed for git operations
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run dashboard update
+        run: |
+          python update_today_burndown.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+          # Check if there are changes
+          if [[ -n $(git status --porcelain) ]]; then
+            git add docs/index.html burndown_projections.json burndown_chart.png slack_message.json
+
+            # Get metrics for commit message
+            BUGS=$(python -c "import json; data=json.load(open('burndown_projections.json')); print(data['current_active_bugs'])")
+            DAYS=$(python -c "import json; data=json.load(open('burndown_projections.json')); print(data.get('business_days_to_code_freeze', 0))")
+            TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+
+            git commit -m "Auto-update: ${BUGS} bugs, ${DAYS} days to freeze" -m "${TIMESTAMP}"
+            git push
+
+            echo "✅ Dashboard updated and pushed"
+          else
+            echo "ℹ️ No changes to commit"
+          fi
+
+      - name: Summary
+        run: |
+          echo "## 📊 Dashboard Update Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          BUGS=$(python -c "import json; data=json.load(open('burndown_projections.json')); print(data['current_active_bugs'])")
+          DAYS=$(python -c "import json; data=json.load(open('burndown_projections.json')); print(data.get('business_days_to_code_freeze', 0))")
+          RATE=$(python -c "import json; data=json.load(open('burndown_projections.json')); print(f\"{data.get('estimated_line_rate', data['historical_daily_rate']):.2f}\")")
+          GAP=$(python -c "import json; data=json.load(open('burndown_projections.json')); print(f\"{data['metrics']['velocity_gap']:.1f}\")")
+
+          echo "- **Active Bugs:** ${BUGS}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Days to Code Freeze:** ${DAYS}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Estimated Rate:** ${RATE} bugs/day" >> $GITHUB_STEP_SUMMARY
+          echo "- **Velocity Gap:** ${GAP}x" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🔗 [View Live Dashboard](https://taylorwestfall-12.github.io/Spire-2-0-burndown-/)" >> $GITHUB_STEP_SUMMARY

@@ -4,7 +4,9 @@ Interactive bug burndown projection dashboard for the Spire 2.0.0 Global release
 
 ## 📊 Live Dashboard
 
-View the dashboard here: [GitHub Pages URL will be added after setup]
+**🔗 https://taylorwestfall-12.github.io/Spire-2-0-burndown-/**
+
+View the interactive dashboard with real-time bug projections, weekend plateaus, and milestone tracking.
 
 ## 🎯 What It Shows
 

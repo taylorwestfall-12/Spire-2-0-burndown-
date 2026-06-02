@@ -13,7 +13,7 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Active Bugs:*\n\ud83d\udd34 *152* bugs"
+          "text": "*Active Bugs:*\n\ud83d\udfe2 *50* bugs"
         },
         {
           "type": "mrkdwn",
@@ -26,7 +26,7 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Required Rate:*\n\ud83d\udcc9 *-19.0* bugs/day"
+          "text": "*Required Rate:*\n\ud83d\udcc9 *-6.2* bugs/day"
         },
         {
           "type": "mrkdwn",
@@ -39,7 +39,7 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Velocity Gap:*\n\u26a1 *12.8x* improvement needed"
+          "text": "*Velocity Gap:*\n\u26a1 *0.7x* improvement needed"
         },
         {
           "type": "mrkdwn",
@@ -52,7 +52,7 @@
       "elements": [
         {
           "type": "mrkdwn",
-          "text": "\ud83d\udd34 *Status:* Critical - urgent action needed"
+          "text": "\ud83d\udfe2 *Status:* On track!"
         }
       ]
     },
@@ -64,10 +64,10 @@
       "elements": [
         {
           "type": "mrkdwn",
-          "text": "\ud83d\udcc5 Updated: June 02, 2026 at 02:43 PM | \ud83d\udd17 <https://taylorwestfall-12.github.io/Spire-2-0-burndown-/|View Full Dashboard>"
+          "text": "\ud83d\udcc5 Updated: June 02, 2026 at 02:54 PM | \ud83d\udd17 <https://taylorwestfall-12.github.io/Spire-2-0-burndown-/|View Full Dashboard>"
         }
       ]
     }
   ],
-  "text": "Spire 2.0.0 Burndown: 152 bugs remaining, 8 days to Code Freeze"
+  "text": "Spire 2.0.0 Burndown: 50 bugs remaining, 8 days to Code Freeze"
 }

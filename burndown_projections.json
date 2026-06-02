@@ -3,12 +3,12 @@
   "generated_timestamp": "2026-06-02T15:00:11.460575",
   "chart_start_date": "2026-05-11",
   "chart_start_bug_count": 201,
-  "current_active_bugs": 45,
+  "current_active_bugs": 46,
   "historical_daily_rate": -3.8,
   "actual_2_0_rate": 4.34,
-  "ideal_rate_per_day": -25.0,
+  "ideal_rate_per_day": -23.0,
   "ideal_rate_from_start": -11.166666666666666,
-  "estimated_line_rate": -12.6,
+  "estimated_line_rate": -15.5,
   "estimated_line_rate_source": "last 10 business days (actual milestone performance)",
   "business_days_to_code_freeze": 2,
   "calendar_days_to_code_freeze": 2,
@@ -126,27 +126,27 @@
     "estimated": [
       {
         "date": "2026-06-02",
-        "count": 45
+        "count": 46
       },
       {
         "date": "2026-06-03",
-        "count": 32.4
+        "count": 30.5
       },
       {
         "date": "2026-06-04",
-        "count": 19.8
+        "count": 15.0
       },
       {
         "date": "2026-06-05",
-        "count": 7.200000000000003
+        "count": 0
       },
       {
         "date": "2026-06-06",
-        "count": 7.200000000000003
+        "count": 0
       },
       {
         "date": "2026-06-07",
-        "count": 7.200000000000003
+        "count": 0
       },
       {
         "date": "2026-06-08",
@@ -227,52 +227,8 @@
         "count": 159
       },
       {
-        "date": "2026-05-22",
-        "count": 30
-      },
-      {
-        "date": "2026-05-23",
-        "count": 31
-      },
-      {
-        "date": "2026-05-24",
-        "count": 31
-      },
-      {
-        "date": "2026-05-25",
-        "count": 31
-      },
-      {
-        "date": "2026-05-26",
-        "count": 33
-      },
-      {
-        "date": "2026-05-27",
-        "count": 34
-      },
-      {
-        "date": "2026-05-28",
-        "count": 37
-      },
-      {
-        "date": "2026-05-29",
-        "count": 39
-      },
-      {
-        "date": "2026-05-30",
-        "count": 41
-      },
-      {
-        "date": "2026-05-31",
-        "count": 41
-      },
-      {
-        "date": "2026-06-01",
-        "count": 41
-      },
-      {
         "date": "2026-06-02",
-        "count": 45
+        "count": 46
       }
     ]
   },

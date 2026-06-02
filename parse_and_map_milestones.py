@@ -37,8 +37,8 @@ WINDOW_END = datetime.now()             # Today
 MILESTONE_2_0_0 = {
     "feature_complete": datetime(2026, 5, 25),
     "bug_fixing_only": datetime(2026, 5, 26),
-    "code_freeze": datetime(2026, 6, 2),
-    "blocking_bugs_only": datetime(2026, 6, 3),
+    "code_freeze": datetime(2026, 6, 4),
+    "blocking_bugs_only": datetime(2026, 6, 5),
     "submit": datetime(2026, 6, 10),
     "go_live": datetime(2026, 6, 15)
 }

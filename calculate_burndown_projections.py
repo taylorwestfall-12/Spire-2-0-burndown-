@@ -29,8 +29,8 @@ OUTPUT_FILE = "burndown_projections.json"
 
 # Key Dates
 CHART_START = datetime(2026, 5, 11)  # Chart starts from May 11
-TODAY = datetime(2026, 5, 21)
-CODE_FREEZE = datetime(2026, 6, 2)
+TODAY = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)  # Today's date
+CODE_FREEZE = datetime(2026, 6, 4)
 SUBMIT = datetime(2026, 6, 10)
 GO_LIVE = datetime(2026, 6, 15)
 

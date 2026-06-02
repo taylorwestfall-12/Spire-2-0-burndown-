@@ -6,8 +6,8 @@
     "key_dates": {
       "feature_complete": "2026-05-25",
       "bug_fixing_only": "2026-05-26",
-      "code_freeze": "2026-06-02",
-      "blocking_bugs_only": "2026-06-03",
+      "code_freeze": "2026-06-04",
+      "blocking_bugs_only": "2026-06-05",
       "submit": "2026-06-10",
       "go_live": "2026-06-15"
     },

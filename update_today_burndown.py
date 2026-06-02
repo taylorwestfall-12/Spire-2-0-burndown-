@@ -18,6 +18,7 @@ import subprocess
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
+from qa_status_utils import is_clickup_visible_bug
 
 # Fix Windows console encoding
 if sys.platform == 'win32':
@@ -33,27 +34,30 @@ TODAY = datetime.now().date()
 
 def count_active_bugs():
     """
-    Count current active 2.0.0 bugs from bug data.
+    Count current active 2.0.0 bugs from bug data using ClickUp's filter logic.
+
+    ClickUp filters to bugs with:
+    - Milestone = "2.0.0 Global"
+    - Status ≠ Closed/Won't Fix
+    - QA Status = "QA Review" (1) or "Open" (4)
 
     Returns:
         int: Current active bug count
     """
-    print(f"📊 Counting active 2.0.0 bugs...")
+    print(f"📊 Counting active 2.0.0 bugs (ClickUp filter logic)...")
 
     with open(BUGS_FILE, 'r', encoding='utf-8') as f:
         bugs = json.load(f)
 
-    # Exclude WON'T FIX from active counts
-    excluded_statuses = ['Closed', 'closed', "won't fix", "Won't Fix", "WON'T FIX"]
-
+    # Apply ClickUp's filter logic
     active_bugs = [
         bug for bug in bugs
-        if bug.get('milestone_simplified') == '2.0.0 Global'
-        and bug.get('status') not in excluded_statuses
+        if is_clickup_visible_bug(bug)
     ]
 
     count = len(active_bugs)
     print(f"✅ Current active bugs: {count}")
+    print(f"   (Filtered by: Milestone=2.0.0 Global, Status≠Closed, QA Status=QA Review/Open)")
     return count
 
 

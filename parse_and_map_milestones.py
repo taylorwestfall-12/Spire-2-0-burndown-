@@ -112,6 +112,26 @@ def extract_milestone_from_bug(bug: dict) -> str:
     return "Unknown"
 
 
+def extract_qa_status_from_bug(bug: dict) -> int:
+    """
+    Extract the QA Status (sp) value from a bug.
+
+    Args:
+        bug: Bug dictionary from ClickUp
+
+    Returns:
+        int: QA Status value (0-14), or None if not set
+    """
+    custom_fields = bug.get("custom_fields", [])
+
+    for field in custom_fields:
+        # Field ID for "QA Status (sp)"
+        if field.get("id") == "67ea8f39-eef6-4786-bab9-61586a1a5814":
+            return field.get("value")
+
+    return None
+
+
 def parse_bug_data(bugs_file: str) -> List[dict]:
     """
     Parse bug data and extract key information.
@@ -144,8 +164,9 @@ def parse_bug_data(bugs_file: str) -> List[dict]:
         date_created = parse_clickup_timestamp(date_created_ms)
         date_closed = parse_clickup_timestamp(date_closed_ms) if date_closed_ms else None
 
-        # Extract milestone
+        # Extract milestone and QA status
         milestone = extract_milestone_from_bug(bug)
+        qa_status = extract_qa_status_from_bug(bug)
 
         # Build parsed bug record
         parsed_bug = {
@@ -154,6 +175,7 @@ def parse_bug_data(bugs_file: str) -> List[dict]:
             "status": status,
             "milestone": milestone,
             "milestone_simplified": MILESTONE_NAME_MAP.get(milestone, milestone),
+            "qa_status": qa_status,
             "date_created": date_created.isoformat() if date_created else None,
             "date_created_ts": date_created_ms,
             "date_closed": date_closed.isoformat() if date_closed else None,

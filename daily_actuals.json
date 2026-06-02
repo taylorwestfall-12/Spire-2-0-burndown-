@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "description": "Daily active bug counts - append-only historical record",
+    "note": "This file is the source of truth for daily counts. Never recalculate past dates.",
+    "filter_logic": "2.0.0 Global milestone, excludes Closed/Won't Fix main status, excludes QA Status Won't Fix/Not a Bug/Duplicated/QA Pass",
+    "created": "2026-06-02"
+  },
+  "daily_counts": [
+    {
+      "date": "2026-05-11",
+      "count": 201,
+      "source": "historical_baseline",
+      "note": "Original project baseline"
+    },
+    {
+      "date": "2026-05-12",
+      "count": 194,
+      "source": "historical_actuals_5_11_to_5_21.json"
+    },
+    {
+      "date": "2026-05-13",
+      "count": 194,
+      "source": "historical_actuals_5_11_to_5_21.json"
+    },
+    {
+      "date": "2026-05-14",
+      "count": 191,
+      "source": "historical_actuals_5_11_to_5_21.json"
+    },
+    {
+      "date": "2026-05-15",
+      "count": 189,
+      "source": "historical_actuals_5_11_to_5_21.json"
+    },
+    {
+      "date": "2026-05-16",
+      "count": 179,
+      "source": "historical_actuals_5_11_to_5_21.json"
+    },
+    {
+      "date": "2026-05-17",
+      "count": 179,
+      "source": "historical_actuals_5_11_to_5_21.json"
+    },
+    {
+      "date": "2026-05-18",
+      "count": 179,
+      "source": "historical_actuals_5_11_to_5_21.json"
+    },
+    {
+      "date": "2026-05-19",
+      "count": 185,
+      "source": "historical_actuals_5_11_to_5_21.json"
+    },
+    {
+      "date": "2026-05-20",
+      "count": 171,
+      "source": "historical_actuals_5_11_to_5_21.json"
+    },
+    {
+      "date": "2026-05-21",
+      "count": 159,
+      "source": "historical_actuals_5_11_to_5_21.json"
+    },
+    {
+      "date": "2026-05-22",
+      "count": 127,
+      "source": "retroactive_calculation",
+      "note": "First day with QA Status filter applied"
+    },
+    {
+      "date": "2026-05-23",
+      "count": 113,
+      "source": "retroactive_calculation"
+    },
+    {
+      "date": "2026-05-24",
+      "count": 113,
+      "source": "retroactive_calculation"
+    },
+    {
+      "date": "2026-05-25",
+      "count": 113,
+      "source": "retroactive_calculation"
+    },
+    {
+      "date": "2026-05-26",
+      "count": 107,
+      "source": "retroactive_calculation"
+    },
+    {
+      "date": "2026-05-27",
+      "count": 104,
+      "source": "retroactive_calculation"
+    },
+    {
+      "date": "2026-05-28",
+      "count": 91,
+      "source": "retroactive_calculation"
+    },
+    {
+      "date": "2026-05-29",
+      "count": 84,
+      "source": "retroactive_calculation"
+    },
+    {
+      "date": "2026-05-30",
+      "count": 75,
+      "source": "retroactive_calculation"
+    },
+    {
+      "date": "2026-05-31",
+      "count": 75,
+      "source": "retroactive_calculation"
+    },
+    {
+      "date": "2026-06-01",
+      "count": 75,
+      "source": "retroactive_calculation"
+    },
+    {
+      "date": "2026-06-02",
+      "count": 46,
+      "source": "clickup_live_count",
+      "note": "First live count with new persistent system"
+    }
+  ]
+}

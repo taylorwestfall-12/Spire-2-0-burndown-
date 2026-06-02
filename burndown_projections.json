@@ -1,16 +1,15 @@
 {
   "generated_date": "2026-06-02",
-  "generated_timestamp": "2026-06-02T15:00:11.460575",
+  "generated_timestamp": "2026-06-02T16:21:15.186692",
   "chart_start_date": "2026-05-11",
   "chart_start_bug_count": 201,
   "current_active_bugs": 46,
   "historical_daily_rate": -3.8,
-  "actual_2_0_rate": 4.34,
-  "ideal_rate_per_day": -23.0,
-  "ideal_rate_from_start": -11.166666666666666,
+  "ideal_rate_per_day": -15.333333333333334,
+  "ideal_rate_from_start": -10.578947368421053,
   "estimated_line_rate": -12.5,
   "estimated_line_rate_source": "last 10 business days (actual milestone performance)",
-  "business_days_to_code_freeze": 2,
+  "business_days_to_code_freeze": 3,
   "calendar_days_to_code_freeze": 2,
   "days_to_go_live": 13,
   "key_dates": {
@@ -24,99 +23,99 @@
     "ideal": [
       {
         "date": "2026-05-11",
-        "count": 201
+        "count": 190.42
       },
       {
         "date": "2026-05-12",
-        "count": 189.83333333333334
+        "count": 179.84
       },
       {
         "date": "2026-05-13",
-        "count": 178.66666666666666
+        "count": 169.26
       },
       {
         "date": "2026-05-14",
-        "count": 167.5
+        "count": 158.68
       },
       {
         "date": "2026-05-15",
-        "count": 156.33333333333334
+        "count": 148.11
       },
       {
         "date": "2026-05-16",
-        "count": 156.33333333333334
+        "count": 148.11
       },
       {
         "date": "2026-05-17",
-        "count": 156.33333333333334
+        "count": 148.11
       },
       {
         "date": "2026-05-18",
-        "count": 145.16666666666669
+        "count": 137.53
       },
       {
         "date": "2026-05-19",
-        "count": 134.0
+        "count": 126.95
       },
       {
         "date": "2026-05-20",
-        "count": 122.83333333333334
+        "count": 116.37
       },
       {
         "date": "2026-05-21",
-        "count": 111.66666666666667
+        "count": 105.79
       },
       {
         "date": "2026-05-22",
-        "count": 100.5
+        "count": 95.21
       },
       {
         "date": "2026-05-23",
-        "count": 100.5
+        "count": 95.21
       },
       {
         "date": "2026-05-24",
-        "count": 100.5
+        "count": 95.21
       },
       {
         "date": "2026-05-25",
-        "count": 89.33333333333334
+        "count": 84.63
       },
       {
         "date": "2026-05-26",
-        "count": 78.16666666666667
+        "count": 74.05
       },
       {
         "date": "2026-05-27",
-        "count": 67.0
+        "count": 63.47
       },
       {
         "date": "2026-05-28",
-        "count": 55.83333333333334
+        "count": 52.89
       },
       {
         "date": "2026-05-29",
-        "count": 44.666666666666686
+        "count": 42.32
       },
       {
         "date": "2026-05-30",
-        "count": 44.666666666666686
+        "count": 42.32
       },
       {
         "date": "2026-05-31",
-        "count": 44.666666666666686
+        "count": 42.32
       },
       {
         "date": "2026-06-01",
-        "count": 33.5
+        "count": 31.74
       },
       {
         "date": "2026-06-02",
-        "count": 22.333333333333343
+        "count": 21.16
       },
       {
         "date": "2026-06-03",
-        "count": 11.166666666666686
+        "count": 10.58
       },
       {
         "date": "2026-06-04",
@@ -150,34 +149,6 @@
       },
       {
         "date": "2026-06-08",
-        "count": 0
-      },
-      {
-        "date": "2026-06-09",
-        "count": 0
-      },
-      {
-        "date": "2026-06-10",
-        "count": 0
-      },
-      {
-        "date": "2026-06-11",
-        "count": 0
-      },
-      {
-        "date": "2026-06-12",
-        "count": 0
-      },
-      {
-        "date": "2026-06-13",
-        "count": 0
-      },
-      {
-        "date": "2026-06-14",
-        "count": 0
-      },
-      {
-        "date": "2026-06-15",
         "count": 0
       }
     ],
@@ -277,7 +248,7 @@
     ]
   },
   "metrics": {
-    "velocity_gap": 5.76,
+    "velocity_gap": 1.2266666666666668,
     "on_track": false
   }
 }

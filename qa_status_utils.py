@@ -28,12 +28,9 @@ QA_STATUS_NAMES = {
     14: "Logs"
 }
 
-# QA Status values that should be counted as "active" in ClickUp view
-# ClickUp filters to only show "QA Review" (1) and "Open" (4)
-ACTIVE_QA_STATUSES = [1, 4]
-
 # QA Status values that should always be excluded (resolved/invalid bugs)
-EXCLUDED_QA_STATUSES = [9, 10, 11, 12, 13]  # Not Reproducible, Duplicated, Not a Bug, Won't Fix, QA Pass
+# These represent bugs that are not actually active work, even if main Status isn't "Closed"
+EXCLUDED_QA_STATUSES = [10, 11, 12, 13]  # Duplicated, Not a Bug, Won't Fix, QA Pass
 
 
 def get_qa_status_value(bug):
@@ -77,9 +74,10 @@ def get_qa_status_name(qa_status_value):
 
 def is_active_qa_status(qa_status_value):
     """
-    Check if a QA Status value is considered "active" in ClickUp's view.
+    Check if a QA Status value represents active work.
 
-    ClickUp filters to only show bugs with QA Status = "QA Review" (1) or "Open" (4).
+    All QA Status values are considered active EXCEPT the excluded ones
+    (Won't Fix, Not a Bug, Duplicated, QA Pass).
 
     Args:
         qa_status_value: QA Status value
@@ -87,7 +85,12 @@ def is_active_qa_status(qa_status_value):
     Returns:
         bool: True if this QA Status should be counted as active
     """
-    return qa_status_value in ACTIVE_QA_STATUSES
+    # If QA Status is None (not set), consider it active
+    if qa_status_value is None:
+        return True
+
+    # If it's in the excluded list, it's not active
+    return qa_status_value not in EXCLUDED_QA_STATUSES
 
 
 def should_exclude_qa_status(qa_status_value):
@@ -105,12 +108,16 @@ def should_exclude_qa_status(qa_status_value):
 
 def is_clickup_visible_bug(bug):
     """
-    Check if a bug would be visible in ClickUp's 2.0.0 Global filtered view.
+    Check if a bug should be counted as active for the burndown.
 
     Criteria:
     - Must have milestone = "2.0.0 Global"
-    - Status must not be Closed/Won't Fix
-    - QA Status must be "QA Review" (1) or "Open" (4)
+    - Main Status must not be Closed/Won't Fix
+    - QA Status must not be Won't Fix/Not a Bug/Duplicated/QA Pass
+
+    Note: All bugs in qa, in progress, code review, to-do, etc. are counted as active.
+    The QA Status custom field is for QA workflow tracking - we only exclude truly
+    invalid/resolved QA Status values.
 
     Args:
         bug: Bug dictionary
@@ -123,14 +130,14 @@ def is_clickup_visible_bug(bug):
     if milestone != '2.0.0 Global':
         return False
 
-    # Check status
+    # Check main status
     status = bug.get('status', '')
     excluded_statuses = ['Closed', 'closed', "won't fix", "Won't Fix", "WON'T FIX"]
     if status in excluded_statuses:
         return False
 
-    # Check QA Status
+    # Check QA Status - only exclude truly invalid/resolved states
     qa_status = get_qa_status_value(bug)
 
-    # Must have QA Status = "QA Review" (1) or "Open" (4)
+    # Exclude bugs marked as Won't Fix, Not a Bug, Duplicated, or QA Pass in QA Status field
     return is_active_qa_status(qa_status)

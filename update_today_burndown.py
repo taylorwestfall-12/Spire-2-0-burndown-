@@ -34,22 +34,25 @@ TODAY = datetime.now().date()
 
 def count_active_bugs():
     """
-    Count current active 2.0.0 bugs from bug data using ClickUp's filter logic.
+    Count current active 2.0.0 bugs from bug data.
 
-    ClickUp filters to bugs with:
+    Counts bugs with:
     - Milestone = "2.0.0 Global"
-    - Status ≠ Closed/Won't Fix
-    - QA Status = "QA Review" (1) or "Open" (4)
+    - Main Status ≠ Closed/Won't Fix (includes in qa, in progress, code review, to-do, etc.)
+    - QA Status (sp) ≠ Won't Fix/Not a Bug/Duplicated/QA Pass (QA workflow field)
+
+    Note: All bugs in active statuses are counted. The QA Status custom field is
+    for QA team workflow - we only exclude truly invalid/resolved QA statuses.
 
     Returns:
         int: Current active bug count
     """
-    print(f"📊 Counting active 2.0.0 bugs (ClickUp filter logic)...")
+    print(f"📊 Counting active 2.0.0 bugs...")
 
     with open(BUGS_FILE, 'r', encoding='utf-8') as f:
         bugs = json.load(f)
 
-    # Apply ClickUp's filter logic
+    # Count active bugs
     active_bugs = [
         bug for bug in bugs
         if is_clickup_visible_bug(bug)
@@ -57,7 +60,7 @@ def count_active_bugs():
 
     count = len(active_bugs)
     print(f"✅ Current active bugs: {count}")
-    print(f"   (Filtered by: Milestone=2.0.0 Global, Status≠Closed, QA Status=QA Review/Open)")
+    print(f"   (Excludes: Closed, Won't Fix, and invalid QA Status values)")
     return count
 
 

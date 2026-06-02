@@ -31,7 +31,7 @@ ANALYSIS_OUTPUT = "burndown_data.json"
 
 # 6-month window for analysis
 WINDOW_START = datetime(2025, 11, 21)  # 6 months before May 21, 2026
-WINDOW_END = datetime(2026, 5, 21)     # Today
+WINDOW_END = datetime.now()             # Today
 
 # Key 2.0.0 milestone dates (from Release Calendar - Client 8)
 MILESTONE_2_0_0 = {
